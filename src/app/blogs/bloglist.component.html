@@ -1,3 +1,8 @@
-<p>
-  bloglist works!
-</p>
+<div>
+  List of blog posts:
+  <ul>
+    <li *ngFor='let blog of blogList'>
+      {{ blog.title }}
+    </li>
+  </ul>
+</div>
