@@ -2,7 +2,9 @@
   List of blog posts:
   <ul>
     <li *ngFor='let blog of blogList'>
-      {{ blog.title }}
+      <app-bloglistitem
+        [blog]='blog'
+      ></app-bloglistitem>
     </li>
   </ul>
 </div>
