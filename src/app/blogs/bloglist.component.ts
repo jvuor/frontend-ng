@@ -9,8 +9,7 @@ import { IBlog } from './blog';
 })
 export class BloglistComponent implements OnInit {
 
-  constructor(private blogService: BlogService) {
-   }
+  constructor(private blogService: BlogService) { }
 
   blogList: IBlog[] = [];
 

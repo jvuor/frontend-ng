@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { IBlog } from './blog';
 
 @Injectable({
@@ -13,11 +13,14 @@ export class BlogService {
   dataUrl = 'http://localhost:3003/api/blogs';
 
   getAll(): Observable<IBlog[]> {
-    return this.http.get<IBlog[]>(this.dataUrl).pipe(catchError(this.handleError));
+    return this.http.get<IBlog[]>(this.dataUrl)
+      .pipe(
+        catchError(this.handleError),
+      );
   }
 
   handleError(err: HttpErrorResponse) {
-    // console.log(err.name, err.message);
+    console.log(err.name, err.message);
     return throwError(err.message);
   }
 }
